@@ -6,7 +6,7 @@ parameters:
 - name: GIT_URI
   displayName: Git repository URI
   description: location of the grafana git repo
-  value: https://github.com/OpenShiftDemos/grafana-openshift
+  value: https://github.com/IPAustralia/grafana-openshift
 - description: Github trigger secret.  A difficult to guess string encoded as part
     of the webhook URL.  Not encrypted.
   displayName: GitHub Webhook Secret
@@ -151,11 +151,10 @@ objects:
     lookupPolicy:
       local: false
     tags:
-    - annotations:
-        openshift.io/imported-from: centos:7
+    - annotations: null
       from:
         kind: DockerImage
-        name: docker.io/centos:7
+        name: docker-registry.default.svc:5000/openshift-infra/centos:7
       importPolicy:
         scheduled: true
       name: "7"
